@@ -1,0 +1,22 @@
+.addFolder {
+    color: #fff;
+    padding-left: 20px;
+}
+
+.folder__control {
+    margin-left: 15px;
+}
+
+.folderName {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.registration__button__group {
+    display: flex;
+    justify-content: center;
+}
+
+.registration__button {
+    width: 100px;
+}

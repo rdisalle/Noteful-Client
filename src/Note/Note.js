@@ -1,4 +1,3 @@
-  
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
@@ -6,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import NoteContext from '../NoteContext'
 import config from '../config'
 import './Note.css'
+import PropTypes from 'prop-types'
 
 export default class Note extends React.Component {
   static defaultProps ={
@@ -39,6 +39,7 @@ export default class Note extends React.Component {
   }
 
   render() {
+    console.log(this.context.deleteNote);
     const { name, id, modified } = this.props
     return (
       <div className='Note'>
@@ -69,3 +70,10 @@ export default class Note extends React.Component {
     )
   }
 }
+
+Note.propTypes = {
+  id: PropTypes.string,
+  onDeleteNote: PropTypes.func,
+  name: PropTypes.string,
+  modified: PropTypes.string
+};
