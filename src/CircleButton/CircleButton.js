@@ -27,5 +27,5 @@ NavCircleButton.propTypes = {
   ]),
   className: PropTypes.string,
   children: PropTypes.array,
-  otherProps: PropTypes,object
+  otherProps: PropTypes.object
 };
