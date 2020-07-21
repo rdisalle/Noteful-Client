@@ -22,6 +22,10 @@ export default class AddNote extends React.Component {
         return res.json()
       })
       .then(resJSON => this.context.handleAddNote(resJSON))
+      .catch(error => {
+        console.error({ error })
+        return "There was an error with the request. Try again later."
+      })
   }
   parseFolders = () => {
     return this.context.folders.map(folder => (
@@ -75,7 +79,7 @@ export default class AddNote extends React.Component {
             type="text"
             name="name"
             id="name"
-            aria-required="true"
+            required="true"
             aria-label="Name"
             onChange={e =>
               this.context.updateNewNoteData(e.target.name, e.target.value)

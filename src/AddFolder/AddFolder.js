@@ -20,6 +20,7 @@ class AddFolder extends React.Component {
         .then(data => this.context.addFolder(data))
         .catch(error => {
             console.error({ error })
+            return "There was an error with the request. Try again later."
           })
       }
 
