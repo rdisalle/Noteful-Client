@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 class NotePageMain extends Component {
   static defaultProps = {
-    notes: []
+    notes: [],
   };
 
   static contextType = NoteContext;

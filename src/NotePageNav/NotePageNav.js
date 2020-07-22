@@ -4,7 +4,7 @@ import CircleButton from '../CircleButton/CircleButton'
 import './NotePageNav.css'
 import NoteContext from '../NoteContext';
 import { findNote, findFolder } from '../notes-helpers'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types' 
 
 class NotePageNav extends Component {
 

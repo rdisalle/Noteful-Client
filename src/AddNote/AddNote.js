@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 export default class AddNote extends React.Component {
   static contextType = NoteContext
+  
   addNewNote = note => {
     
     note.modified = new Date(note.modified);
@@ -79,7 +80,7 @@ export default class AddNote extends React.Component {
             type="text"
             name="name"
             id="name"
-            required="true"
+            required={true}
             aria-label="Name"
             onChange={e =>
               this.context.updateNewNoteData(e.target.name, e.target.value)
@@ -95,7 +96,7 @@ export default class AddNote extends React.Component {
             type="text"
             name="content"
             id="content"
-            aria-required="true"
+            required={true}
             aria-label="Description"
             onChange={e =>
               this.context.updateNewNoteData(e.target.name, e.target.value)
@@ -105,7 +106,7 @@ export default class AddNote extends React.Component {
           <select
             name="folders"
             id="folders"
-            aria-required="true"
+            required={true}
             aria-label="Select a folder"
           >
             {this.parseFolders()}
