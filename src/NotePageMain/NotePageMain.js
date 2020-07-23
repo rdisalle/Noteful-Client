@@ -11,11 +11,16 @@ class NotePageMain extends Component {
   };
 
   static contextType = NoteContext;
-  
+
+  onDelete = () => {
+    this.props.history.push('/')
+  }
+
   render() {
     const { notes } = this.context
     const { noteId } = this.props.match.params
     const note = findNote(notes, noteId) || { content: '' }
+
 
   return (
     <section className='NotePageMain'>
@@ -23,6 +28,7 @@ class NotePageMain extends Component {
         id={note.id}
         name={note.name}
         modified={note.modified}
+        delete= {this.onDelete}
       />
       <div className='NotePageMain__content'>
         {note.content.split(/\n \r|\n/).map((para, i) =>

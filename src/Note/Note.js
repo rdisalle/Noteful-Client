@@ -8,6 +8,9 @@ import './Note.css'
 import PropTypes from 'prop-types'
 
 export default class Note extends React.Component {
+  static defaultProps = {
+    name: ''
+  }
  
   static contextType = NoteContext;
 
@@ -28,6 +31,7 @@ export default class Note extends React.Component {
       })
       .then(() => {
         this.context.deleteNote(noteId)
+        this.props.delete()
         // allow parent to perform extra behaviour
         //this.props.onDeleteNote(noteId)
       })
