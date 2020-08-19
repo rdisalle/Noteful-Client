@@ -7,7 +7,9 @@ import PropTypes from 'prop-types'
 
 class NotePageMain extends Component {
   static defaultProps = {
-    notes: [],
+    match: {
+      params: {}
+    }
   };
 
   static contextType = NoteContext;
@@ -27,7 +29,7 @@ class NotePageMain extends Component {
       <Note
         id={note.id}
         name={note.name}
-        modified={note.modified}
+        date_modified={note.date_modified}
         delete= {this.onDelete}
       />
       <div className='NotePageMain__content'>

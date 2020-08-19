@@ -7,13 +7,13 @@ import PropTypes from 'prop-types';
 class AddFolder extends React.Component {
     static contextType = NoteContext;
 
-    addFolder = (name) => {
+    addFolder = (title) => {
         fetch(`${config.API_ENDPOINT}/folders/`, {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
             },
-            body: JSON.stringify({name})
+            body: JSON.stringify({title})
           }
         )
         .then(resp => resp.json())
@@ -32,13 +32,13 @@ class AddFolder extends React.Component {
         this.props.history.goBack();
       }
     
-      updateFolderName(e) {
-        const newName = e.target.value;
-          this.context.updateNewFolderName(newName);
+      updateFolderTitle(e) {
+        const newTitle = e.target.value;
+          this.context.updateNewFolderTitle(newTitle);
       }
 
-      validateFolderName() {
-        if (this.context.newFolder.name.trim().length <= 3) {
+      validateFolderTitle() {
+        if (this.context.newFolder.title.trim().length <= 3) {
           return 'Must be more than 3 characters.'
         }
       }
@@ -48,19 +48,16 @@ class AddFolder extends React.Component {
             <form className="addFolder" onSubmit={e => this.handleSubmit(e)}>
               <h2>Add Folder</h2> 
               <div className="form-group">
-                <label htmlFor="newFolder">Folder Name *</label>
+                <label htmlFor="newFolder">Folder Title *</label>
                 {this.context.newFolder.touched && (
-                <p>{this.validateFolderName()}</p>
+                <p>{this.validateFolderTitle()}</p>
                 )}  
                 <input type="text" className="folder__control"
-                  name="newFolder" id="newFolder" onChange={(e) => this.updateFolderName(e)}/>
+                  name="newFolder" id="newFolder" onChange={(e) => this.updateFolderTitle(e)}/>
               </div>
-              <div className="folderName">* required field</div> 
+              <div className="folderTitle">* required field</div> 
               <div className="registration__button__group">
-              <button type="submit" className="registration__button" 
-              disabled={
-                this.validateFolderName()
-              }>
+              <button type="submit" className="registration__button">
                    Add Folder!
                </button>
               </div>

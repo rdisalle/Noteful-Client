@@ -9,7 +9,7 @@ export default class AddNote extends React.Component {
   
   addNewNote = note => {
     
-    note.modified = new Date(note.modified);
+    note.date_modified = new Date(note.date_modified);
 
     fetch(`${config.API_ENDPOINT}/notes`, {
       method: 'POST',
@@ -31,7 +31,7 @@ export default class AddNote extends React.Component {
   parseFolders = () => {
     return this.context.folders.map(folder => (
       <option key={folder.id} name={folder.id} value={folder.id}>
-        {folder.name}
+        {folder.title}
       </option>
     ))
   }
@@ -41,8 +41,8 @@ export default class AddNote extends React.Component {
     const newNote = {
       name: e.target.name.value,
       content: e.target.content.value,
-      folderId: e.target.folders.value,
-      modified: new Date(),
+      folder_id: e.target.folders.value,
+      date_modified: new Date(),
     }
     console.log(newNote);
     this.addNewNote(newNote)
