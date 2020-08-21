@@ -45,10 +45,11 @@ export default class Note extends React.Component {
     return (
       <div className='Note'>
         <h2 className='Note__title'>
-          <Link to={`/notes/${id}`}>
+          <Link to={`/notes/${id}`}> 
             {name}
           </Link>
         </h2>
+        <Link to={`/edit/${id}`}>Edit Note</Link>
         <button
           className='Note__delete'
           type='button'

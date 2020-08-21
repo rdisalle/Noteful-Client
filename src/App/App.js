@@ -10,6 +10,7 @@ import config from '../config'
 import './App.css'
 import AddFolder from '../AddFolder/AddFolder'
 import AddNote from '../AddNote/AddNote'
+import EditNote from '../EditNote/EditNote'
 
 class App extends Component {
   state = {
@@ -38,7 +39,7 @@ class App extends Component {
 
   componentDidMount() {
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/notes`), 
+      fetch(`${config.API_ENDPOINT}/notes/`), 
       fetch(`${config.API_ENDPOINT}/folders`), 
     ])
       .then(([notesRes, foldersRes]) => {
@@ -96,6 +97,14 @@ class App extends Component {
     })
   }
 
+  updateNote = updatedNote => {
+    this.setState({
+      notes: this.state.notes.map(note =>
+        (note.id !== updatedNote.id) ? note : updatedNote
+      )
+    })
+  }
+
   renderNavRoutes() {
     return (
       <>
@@ -115,6 +124,7 @@ class App extends Component {
         <Route path="/notes/:noteId" component={NotePageMain} />
         <Route path="/add-folder" component={AddFolder} />
         <Route path="/add-note" component={AddNote} />
+        <Route path="/edit/:noteId" component={EditNote} />
         {['/', '/folders/:folderId'].map(path => (
           <Route exact key={path} path={path} component={NoteListMain} />
         ))}
@@ -133,7 +143,8 @@ class App extends Component {
       updateNewFolderTitle: this.updateNewFolderTitle,
       newNote: this.state.newNote,
       handleAddNote: this.handleAddNote,
-      updateNewNoteData: this.updateNewNoteData
+      updateNewNoteData: this.updateNewNoteData,
+      updateNote: this.updateNote,
     }
     return (
       <NoteContext.Provider value={value}>
