@@ -9,11 +9,18 @@ exports[`Note component renders a .Note by default 1`] = `
   >
     <Link
       replace={false}
-      to="/note/undefined"
+      to="/notes/undefined"
     />
   </h2>
+  <Link
+    replace={false}
+    to="/edit/undefined"
+  >
+    Edit Note
+  </Link>
   <button
     className="Note__delete"
+    onClick={[Function]}
     type="button"
   >
     <FontAwesomeIcon
@@ -64,13 +71,20 @@ exports[`Note component renders the Note given props 1`] = `
   >
     <Link
       replace={false}
-      to="/note/a"
+      to="/notes/1"
     >
       test-class-name
     </Link>
   </h2>
+  <Link
+    replace={false}
+    to="/edit/1"
+  >
+    Edit Note
+  </Link>
   <button
     className="Note__delete"
+    onClick={[Function]}
     type="button"
   >
     <FontAwesomeIcon

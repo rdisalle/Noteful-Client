@@ -7,6 +7,14 @@ import { findNote, findFolder } from '../notes-helpers'
 import PropTypes from 'prop-types' 
 
 class NotePageNav extends Component {
+  static defaultProps = {
+    history: {
+      goBack: () => { }
+    },
+    match: {
+      params: {}
+    }
+  }
 
   static contextType = NoteContext;
 
