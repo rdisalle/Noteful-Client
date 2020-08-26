@@ -8,7 +8,7 @@ class AddFolder extends React.Component {
     static contextType = NoteContext;
 
     addFolder = (title) => {
-        fetch(`${config.API_ENDPOINT}/folders/`, {
+        fetch(`${config.API_ENDPOINT}/api/folders/`, {
             method: 'POST',
             headers: {
               'content-type': 'application/json',

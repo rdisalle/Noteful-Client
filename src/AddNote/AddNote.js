@@ -11,7 +11,7 @@ export default class AddNote extends React.Component {
     
     note.date_modified = new Date(note.date_modified);
 
-    fetch(`${config.API_ENDPOINT}/notes`, {
+    fetch(`${config.API_ENDPOINT}/api/notes/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

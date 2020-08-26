@@ -32,7 +32,7 @@ class EditNote extends Component {
 
   componentDidMount() {
     const { noteId } = this.props.match.params
-    fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
+    fetch(`${config.API_ENDPOINT}/api/notes/${noteId}`, {
       method: 'GET',
     })
       .then(res => {
